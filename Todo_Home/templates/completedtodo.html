@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+      {% for i in todo %}
+      <li><b> {{ i.title }} </b>- {{i.datecompleted}} </li>
+      {% endfor %}
+    </ul>
+    <form method="POST" action={% url "clearall" %}>
+      {% csrf_token %}
+      <button type="submit" name="DeleteAll">Clear All</button>
+    </form>
+
+{% endblock %}
